@@ -1,0 +1,238 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "HTTP Documentation",
+    "description": "User APIs",
+    "version": "1.0.0"
+  },
+  "host": "cse341-project2-1nzc.onrender.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/wzmeta/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "muzzle": {
+                  "example": "any"
+                },
+                "barrel": {
+                  "example": "any"
+                },
+                "optic": {
+                  "example": "any"
+                },
+                "stock": {
+                  "example": "any"
+                },
+                "magazine": {
+                  "example": "any"
+                },
+                "underbarrel": {
+                  "example": "any"
+                },
+                "ammunition": {
+                  "example": "any"
+                },
+                "rearGrip": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/wzmeta/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "muzzle": {
+                  "example": "any"
+                },
+                "barrel": {
+                  "example": "any"
+                },
+                "optic": {
+                  "example": "any"
+                },
+                "stock": {
+                  "example": "any"
+                },
+                "magazine": {
+                  "example": "any"
+                },
+                "underbarrel": {
+                  "example": "any"
+                },
+                "ammunition": {
+                  "example": "any"
+                },
+                "rearGrip": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "muzzle": {
+                  "example": "any"
+                },
+                "barrel": {
+                  "example": "any"
+                },
+                "optic": {
+                  "example": "any"
+                },
+                "stock": {
+                  "example": "any"
+                },
+                "magazine": {
+                  "example": "any"
+                },
+                "underbarrel": {
+                  "example": "any"
+                },
+                "ammunition": {
+                  "example": "any"
+                },
+                "rearGrip": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "scheme": [
+    "http",
+    "https"
+  ]
+}

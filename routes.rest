@@ -1,0 +1,49 @@
+### ---Test the SERVER 
+GET http://localhost:8080
+
+### --Test ALL WZ Meta Weapons
+GET http://localhost:8080/wzmeta
+
+### --Test SINGLE WZ Meta Weapon
+GET http://localhost:8080/wzmeta/670456e111243f74d4c895c8
+
+### ---Render ALL WZ Meta Weapons---
+GET https://cse341-project2-1nzc.onrender.com/wzmeta
+
+### ---Render SINGLE WZ Meta Weapon
+GET https://cse341-project2-1nzc.onrender.com/wzmeta/67042e0d3ff6863a1b20f07e
+
+### ---Create a WZ Meta Weapon---
+POST http://localhost:8080/wzmeta HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "PULEMYOT 762",
+  "muzzle": "QUARTERMASTER SUPPRESSOR",
+  "barrel": "ST PYRO HEAVY BARREL",
+  "optic": "SZ HOLOTHERM",
+  "stock": "IVANOV WOOD STOCK",
+  "magazine": "NA",
+  "underbarrel": "NA",
+  "ammunition": "7.62X54MMR HIGH VELOCITY",
+  "rearGrip": "NA"
+}
+
+### Update a WZ Meta Weapon
+PUT http://localhost:8080/wzmeta/670456e111243f74d4c895c8 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "PULEMYOT 762",
+  "muzzle": "QUARTERMASTER SUPPRESSOR",
+  "barrel": "ST PYRO HEAVY BARREL",
+  "optic": "SZ HOLOTHERM",
+  "stock": "IVANOV WOOD STOCK",
+  "magazine": "",
+  "underbarrel": "",
+  "ammunition": "7.62X54MMR HIGH VELOCITY",
+  "rearGrip": ""
+}
+
+### Delete a WZ Meta Weapon
+DELETE http://localhost:8080/wzmeta/670457f1aaef353e292ef441 HTTP/1.1

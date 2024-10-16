@@ -6,6 +6,7 @@ const router = require('express').Router();
 }) */
 router.use('/', require('./swagger'));
 router.use('/members', require('./members'));
+router.use('/authors', require('./authors'));
 router.use('/wzmeta', require('./wzmeta'));
 
 //Login routes

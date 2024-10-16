@@ -1,0 +1,5 @@
+# DEE TODO
+
+- [ ] Add is authenticated to all member routes
+- [x] Data validation for creating member
+- [ ] Add { addLoan, removeLoad, addTBR, removeTBR } functions to Members Routes

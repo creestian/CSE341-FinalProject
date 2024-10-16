@@ -1,30 +1,80 @@
 const validator = require('../helpers/validate');
+const ObjectId = require('mongodb').ObjectId;
 
 const saveContact = (req, res, next) => {
-  const validationRule = {
-    name: 'required|string',
-    muzzle: 'string',
-    barrel: 'string',
-    optic: 'string',
-    stock: 'string',
-    magazine: 'string',
-    underbarrel: 'string',
-    ammunition: 'string',
-    rearGrip: 'string',
-  };
-  validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) {
-      res.status(412).send({
-        success: false,
-        message: 'Validation failed',
-        data: err
-      });
-    } else {
-      next();  // goes to contactsController.updateContact en routes/contacts.
-    }
-  });
+	const validationRule = {
+		name: 'required|string',
+		muzzle: 'string',
+		barrel: 'string',
+		optic: 'string',
+		stock: 'string',
+		magazine: 'string',
+		underbarrel: 'string',
+		ammunition: 'string',
+		rearGrip: 'string',
+	};
+	validator.validator(req.body, validationRule, {}, (err, status) => {
+		if (!status) {
+			res.status(412).send({
+				success: false,
+				message: 'Validation failed',
+				data: err,
+			});
+		} else {
+			next(); // goes to contactsController.updateContact en routes/contacts.
+		}
+	});
 };
 
+const memberDataValidation = (req, res, next) => {
+	const validationRule = {
+		firstName: 'required|string',
+		lastName: 'required|string',
+		email: 'required|email',
+		dob: 'required|date',
+		accountType: 'required|string|in:member,librarian',
+		loans: 'array',
+		'loans.*': 'string',
+		toBeRead: 'array',
+		'toBeRead.*': 'string',
+	};
+	validator.validator(req.body, validationRule, {}, (err, status) => {
+		if (!status) {
+			res.status(412).send({
+				success: false,
+				message: 'Validation failed',
+				data: err,
+			});
+		} else {
+			next();
+		}
+	});
+};
+
+async function checkID(req, res, next) {
+	try {
+		const ID = new ObjectId(req.params.id);
+		const validDocument = await validator.getOneByID(ID);
+		if (validDocument.length < 1) {
+			res.status(412).send({
+				success: false,
+				message: 'Validation failed',
+				data: 'Invalid ID - ID not found',
+			});
+		} else {
+			next();
+		}
+	} catch {
+		res.status(400).send({
+			success: false,
+			message: 'Validation failed',
+			data: 'Invalid ID format',
+		});
+	}
+}
+
 module.exports = {
-  saveContact
+	saveContact,
+	memberDataValidation,
+	checkID,
 };

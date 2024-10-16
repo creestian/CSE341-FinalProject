@@ -99,6 +99,93 @@ const deleteMember = async (req, res) => {
 		.collection('members')
 		.deleteOne({ _id: ID });
 	res.status(200).json('Member Removed');
-}
+};
 
-module.exports = { getAllMembers, getMember, addMember, updateMemberByID, deleteMember }
+const addBookArray = async (req, res) => {
+	//#swagger.tags=['Members']
+	try {
+		const memberID = new ObjectId(req.body.memberID);
+		const listType = req.body.listType;
+		const toAddId = req.body.itemID;
+
+		// Fetch the member from the database
+		const member = await mongodb
+			.getDatabase()
+			.db()
+			.collection('members')
+			.findOne({ _id: memberID });
+
+		if (!member) {
+			return res.status(404).json({ message: 'Member not found' });
+		}
+
+		// Update the member's array
+		const result = await mongodb
+			.getDatabase()
+			.db()
+			.collection('members')
+			.updateOne(
+				{ _id: memberID },
+				{ $push: { [listType]: toAddId } } // Adds the item to the array
+			);
+
+		res.status(200).json({ message: 'Item added successfully', memberID });
+	} catch (error) {
+		console.error('Error adding item:', error);
+		res.status(500).json({ message: 'Failed to add item' });
+	}
+};
+
+const removeBookFromArray = async (req, res) => {
+	//#swagger.tags=['Members']
+	try {
+		const memberID = new ObjectId(req.body.memberID);
+		const bookID = req.body.itemID; // The book to remove
+		const listType = req.body.listType; // Either 'loans' or 'toBeRead'
+
+		// Fetch the member from the database
+		const member = await mongodb
+			.getDatabase()
+			.db()
+			.collection('members')
+			.findOne({ _id: memberID });
+
+		if (!member) {
+			return res.status(404).json({ message: 'Member not found' });
+		}
+
+		// Use $pull to remove the book from the specified list (either loans or toBeRead)
+		const result = await mongodb
+			.getDatabase()
+			.db()
+			.collection('members')
+			.updateOne(
+				{ _id: memberID },
+				{ $pull: { [listType]: bookID } }
+			);
+
+		if (result.modifiedCount === 0) {
+			return res.status(404).json({ message: 'Book not found in the list' });
+		}
+
+		res
+			.status(200)
+			.json({
+				message: `Book removed from ${listType} successfully`,
+				memberID,
+			});
+	} catch (error) {
+		console.error('Error removing book:', error);
+		res.status(500).json({ message: 'Failed to remove book' });
+	}
+};
+
+module.exports = {
+	getAllMembers,
+	getMember,
+	addMember,
+	updateMemberByID,
+	deleteMember,
+	addBookArray,
+	removeBookFromArray,
+};

@@ -83,3 +83,23 @@ Content-Type: application/json
     "loans": [],
     "toBeRead": []
 }
+
+### Add book to TBR
+POST http://localhost:8080/members/add
+Content-Type: application/json
+
+{
+    "memberID": "670d61142fa7a06fdc54cb33",
+    "listType": "toBeRead",
+    "itemID": "670d629e2fa7a06fdc54cb38"
+}
+
+### Remove book to TBR
+POST http://localhost:8080/members/remove
+Content-Type: application/json
+
+{
+    "memberID": "670d61142fa7a06fdc54cb33",
+    "listType": "toBeRead",
+    "itemID": "670d629e2fa7a06fdc54cb38"
+}

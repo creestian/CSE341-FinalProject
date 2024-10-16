@@ -73,8 +73,53 @@ async function checkID(req, res, next) {
 	}
 }
 
+async function validateAddRemove(req, res, next) {
+	const validationRule = {
+		memberID: 'required|string',
+		listType: 'required|string|in:toBeRead,loans',
+		itemID: 'required|string',
+	};
+	validator.validator(req.body, validationRule, {}, (err, status) => {
+		if (!status) {
+			res.status(412).send({
+				success: false,
+				message: 'Validation failed',
+				data: err,
+			});
+		} else {
+			next();
+		}
+	});
+}
+
+async function checkAddRemoveIDs(req, res, next) {
+	try {
+		const memberID = new ObjectId(req.body.memberID);
+		const itemID = new ObjectId(req.body.itemID);
+		const validItem = await validator.getOneByID(itemID);
+		const validMember = await validator.getOneByID(memberID);
+		if (validItem.length < 1 && validMember.length < 1) {
+			res.status(412).send({
+				success: false,
+				message: 'Validation failed',
+				data: 'Invalid IDs - IDs not found',
+			});
+		} else {
+			next();
+		}
+	} catch {
+		res.status(400).send({
+			success: false,
+			message: 'Validation failed',
+			data: 'Invalid ID format',
+		});
+	}
+}
+
 module.exports = {
 	saveContact,
 	memberDataValidation,
 	checkID,
+	validateAddRemove,
+	checkAddRemoveIDs,
 };

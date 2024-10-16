@@ -18,6 +18,22 @@ router.post('/', validation.memberDataValidation, controller.addMember);
 // Update member by ID
 router.put('/:id', validation.checkID, controller.updateMemberByID);
 
+// Add loan or to be read book
+router.post(
+	'/add',
+	validation.validateAddRemove,
+	validation.checkAddRemoveIDs,
+	controller.addBookArray
+);
+
+// Remove loan or to be read book
+router.post(
+	'/remove',
+	validation.validateAddRemove,
+	validation.checkAddRemoveIDs,
+	controller.removeBookFromArray
+);
+
 // Remove member by ID
 router.delete('/:id', validation.checkID, controller.deleteMember);
 

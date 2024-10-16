@@ -5,21 +5,22 @@ const router = require('express').Router();
     res.send("WZ talktowalls Meta APIs");
 }) */
 router.use('/', require('./swagger'));
+router.use('/members', require('./members'));
 router.use('/wzmeta', require('./wzmeta'));
 
 //Login routes
-router.get('/login', passport.authenticate('github'), (req,res)=>{
-    // req.session.user = "creestian";
-    // res.send("Session is set");
+router.get('/login', passport.authenticate('github'), (req, res) => {
+	// req.session.user = "creestian";
+	// res.send("Session is set");
 });
 
-router.get('/logout', function (req,res,next) {
-    req.logout(function(err) {
-        if(err) {
-            return next(err);
-        }
-        res.redirect('/');
-    })  
-})
+router.get('/logout', function (req, res, next) {
+	req.logout(function (err) {
+		if (err) {
+			return next(err);
+		}
+		res.redirect('/');
+	});
+});
 
 module.exports = router;

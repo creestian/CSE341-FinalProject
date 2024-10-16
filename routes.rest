@@ -47,3 +47,39 @@ Content-Type: application/json
 
 ### Delete a WZ Meta Weapon
 DELETE http://localhost:8080/wzmeta/670457f1aaef353e292ef441 HTTP/1.1
+
+#### MEMBERS ####
+
+### Get all members
+get http://localhost:8080/members
+
+### Get member by ID
+get http://localhost:8080/members/670f1606090223fec7f2346d
+
+### Add a new Member
+POST http://localhost:8080/members
+Content-Type: application/json
+
+{
+    "firstName": "TESTfirst",
+    "lastName": "TESTlast",
+    "email": "email@email.com",
+    "dob": "2001-01-01",
+    "accountType": "member",
+    "loans": [],
+    "toBeRead": []
+}
+
+### Add a new Member with invalid dob
+POST http://localhost:8080/members
+Content-Type: application/json
+
+{
+    "firstName": "TESTfirst",
+    "lastName": "TESTlast",
+    "email": "email@email.com",
+    "dob": "2001-01-152",
+    "accountType": "member",
+    "loans": [],
+    "toBeRead": []
+}

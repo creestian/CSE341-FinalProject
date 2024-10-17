@@ -11,7 +11,7 @@ const getAll = async (req, res) => {
       const result = await mongodb
         .getDatabase()
         .db()
-        .collection('wzmeta')
+        .collection('books')
         .find();
       result.toArray().then((lists) => {
         res.setHeader('Content-Type', 'application/json');
@@ -28,12 +28,12 @@ const getAll = async (req, res) => {
   
   const getSingle = async (req, res) => {
     try{
-      const wzmetaId = new ObjectId(req.params.id);
+      const booksId = new ObjectId(req.params.id);
       const result = await mongodb
         .getDatabase()
         .db()
-        .collection('wzmeta')
-        .find({ _id: wzmetaId });
+        .collection('books')
+        .find({ _id: booksId });
       result.toArray().then((lists) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(lists[0]);
@@ -49,7 +49,7 @@ const getAll = async (req, res) => {
   
   const createMeta = async (req, res) => {
     try{
-      const wzmetaBody = {
+      const booksBody = {
         name: req.body.name,
         muzzle: req.body.muzzle,
         barrel: req.body.barrel,
@@ -63,8 +63,8 @@ const getAll = async (req, res) => {
       const result = await mongodb
         .getDatabase()
         .db()
-        .collection('wzmeta')
-        .insertOne(wzmetaBody);
+        .collection('books')
+        .insertOne(booksBody);
         console.log(result);
         if (result.acknowledged) {
           res.status(201).send();
@@ -82,8 +82,8 @@ const getAll = async (req, res) => {
 
   const updateMeta = async (req, res) => {
     //swagger.tags=['User']
-   const wzmetaId = new ObjectId(req.params.id);
-   const wzmetaBody = {
+   const booksId = new ObjectId(req.params.id);
+   const booksBody = {
     name: req.body.name,
     muzzle: req.body.muzzle,
     barrel: req.body.barrel,
@@ -98,8 +98,8 @@ const getAll = async (req, res) => {
    const result = await mongodb
     .getDatabase()
     .db()
-    .collection('wzmeta')
-    .replaceOne({_id: wzmetaId}, wzmetaBody);
+    .collection('books')
+    .replaceOne({_id: booksId}, booksBody);
     console.log(result);
    if(result.modifiedCount > 0) {
     res.status(204).send();
@@ -115,12 +115,12 @@ const getAll = async (req, res) => {
   
   const deleteMeta = async(req, res) => {
     try{
-      const wzmetaId = new ObjectId(req.params.id);
+      const booksId = new ObjectId(req.params.id);
       const result = await mongodb
         .getDatabase()
         .db()
-        .collection('wzmeta')
-        .deleteOne({ _id: wzmetaId});
+        .collection('books')
+        .deleteOne({ _id: booksId});
         console.log(result);
         if (result.deletedCount > 0) {
           res.status(204).send();

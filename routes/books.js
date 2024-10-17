@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/wzmeta');
+const controller = require('../controllers/books');
 const validation = require('../middleware/validate');
 const {isAuthenticated} = require('../middleware/authenticate');
 

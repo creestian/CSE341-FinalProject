@@ -7,7 +7,7 @@ const router = require('express').Router();
 router.use('/', require('./swagger'));
 router.use('/members', require('./members'));
 router.use('/authors', require('./authors'));
-router.use('/wzmeta', require('./wzmeta'));
+router.use('/books', require('./books'));
 
 //Login routes
 router.get('/login', passport.authenticate('github'), (req, res) => {

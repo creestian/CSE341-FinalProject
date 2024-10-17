@@ -1,8 +1,14 @@
 ### ---Test the SERVER 
 GET http://localhost:8080
 
+### --Test ALL authors
+GET http://localhost:8080/authors
+
 ### --Test ALL books
 GET http://localhost:8080/books
+
+### --Test ALL members
+GET http://localhost:8080/members
 
 ### --Test SINGLE book
 GET http://localhost:8080/books/670d619f2fa7a06fdc54cb35

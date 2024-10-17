@@ -19,7 +19,11 @@ const getOne = async (req, res) => {
     res.status(200).json(lists[0]);
   });
 };
+<<<<<<< HEAD
 
+=======
+//Get loans by memberID
+>>>>>>> 9d532eb0481ea73440aaf3f871dda909eb077d44
 const getByMemberID = async (req, res) => {
   const memberID = req.params.memberID; // Get memberID from the request parameters
   const result = await mongodb.getDb().db().collection('loans').find({ memberID: memberID });

@@ -12,12 +12,12 @@
   "description": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/creestian/CSE341.git"
+    "url": "git+https://github.com/creestian/CSE341-FinalProject.git"
   },
   "bugs": {
-    "url": "https://github.com/creestian/CSE341/issues"
+    "url": "https://github.com/creestian/CSE341-FinalProject/issues"
   },
-  "homepage": "https://github.com/creestian/CSE341#readme",
+  "homepage": "https://github.com/creestian/CSE341-FinalProject#readme",
   "dependencies": {
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",

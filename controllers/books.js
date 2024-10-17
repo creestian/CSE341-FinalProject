@@ -50,12 +50,15 @@ const getAll = async (req, res) => {
   const createBook = async (req, res) => {
     try{
       const booksBody = {
-        bookId: req.body.bookId,
+        author_id: req.body.author_id,
         title: req.body.title,
-        author: req.body.author,
+        avgRating: req.body.avgRating,
+        numCopies: req.body.numCopies,
+        avaliableCopies: req.body.avaliableCopies,
+      /*      
         genre: req.body.genre,
         rating: req.body.rating,
-/*         stock: req.body.stock,
+        stock: req.body.stock,
         magazine: req.body.magazine,
         underbarrel: req.body.underbarrel,
         ammunition: req.body.ammunition,
@@ -85,12 +88,15 @@ const getAll = async (req, res) => {
     //swagger.tags=['User']
    const booksId = new ObjectId(req.params.id);
    const booksBody = {
-    bookId: req.body.bookId,
+    author_id: req.body.author_id,
     title: req.body.title,
-    author: req.body.author,
+    avgRating: req.body.avgRating,
+    numCopies: req.body.numCopies,
+    avaliableCopies: req.body.avaliableCopies,
+  /*      
     genre: req.body.genre,
     rating: req.body.rating,
-/*         stock: req.body.stock,
+    stock: req.body.stock,
     magazine: req.body.magazine,
     underbarrel: req.body.underbarrel,
     ammunition: req.body.ammunition,

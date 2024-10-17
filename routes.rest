@@ -2,7 +2,7 @@
 GET http://localhost:8080
 
 ### --Test ALL WZ Meta Weapons
-GET http://localhost:8080/wzmeta
+GET http://localhost:8080/books
 
 ### --Test SINGLE WZ Meta Weapon
 GET http://localhost:8080/wzmeta/670456e111243f74d4c895c8

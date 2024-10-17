@@ -6,7 +6,6 @@ const router = require('express').Router();
 }) */
 router.use('/', require('./swagger'));
 router.use('/members', require('./members'));
-router.use('/members/loan', require('./loan'));
 router.use('/authors', require('./authors'));
 router.use('/books', require('./books'));
 

@@ -8,6 +8,6 @@ router.get('/:id', getOne);
 router.get('/member/:memberID', isAuthenticated, getByMemberID);
 router.post('/add', isAuthenticated, add);
 router.put('/update/:id', isAuthenticated, update);
-router.delete('/remove/:id', isAuthenticated, remove);
+router.delete('/remove/:id', isAuthenticated, remove);''
 
 module.exports = router;

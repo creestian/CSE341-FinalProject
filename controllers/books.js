@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 
 //-------------------------------------
-//  GET ALL WZ META COLLECTION
+//  GET ALL BOOKS
 //-------------------------------------
 const getAll = async (req, res) => {
     try{
@@ -23,7 +23,7 @@ const getAll = async (req, res) => {
   };
   
   //------------------------------------
-  // GET SINGLE WZ META
+  // GET SINGLE BOOK
   //------------------------------------
   
   const getSingle = async (req, res) => {
@@ -44,21 +44,22 @@ const getAll = async (req, res) => {
   };
 
   //------------------------------------
-  // CREATE WZ META
+  // CREATE BOOK
   //------------------------------------
   
-  const createMeta = async (req, res) => {
+  const createBook = async (req, res) => {
     try{
       const booksBody = {
-        name: req.body.name,
-        muzzle: req.body.muzzle,
-        barrel: req.body.barrel,
-        optic: req.body.optic,
-        stock: req.body.stock,
+        bookId: req.body.bookId,
+        title: req.body.title,
+        author: req.body.author,
+        genre: req.body.genre,
+        rating: req.body.rating,
+/*         stock: req.body.stock,
         magazine: req.body.magazine,
         underbarrel: req.body.underbarrel,
         ammunition: req.body.ammunition,
-        rearGrip: req.body.rearGrip
+        rearGrip: req.body.rearGrip */
       };
       const result = await mongodb
         .getDatabase()
@@ -77,22 +78,23 @@ const getAll = async (req, res) => {
   };
 
   //------------------------------------
-  // UPDATE WZ META
+  // UPDATE BOOK
   //------------------------------------
 
-  const updateMeta = async (req, res) => {
+  const updateBook = async (req, res) => {
     //swagger.tags=['User']
    const booksId = new ObjectId(req.params.id);
    const booksBody = {
-    name: req.body.name,
-    muzzle: req.body.muzzle,
-    barrel: req.body.barrel,
-    optic: req.body.optic,
-    stock: req.body.stock,
+    bookId: req.body.bookId,
+    title: req.body.title,
+    author: req.body.author,
+    genre: req.body.genre,
+    rating: req.body.rating,
+/*         stock: req.body.stock,
     magazine: req.body.magazine,
     underbarrel: req.body.underbarrel,
     ammunition: req.body.ammunition,
-    rearGrip: req.body.rearGrip
+    rearGrip: req.body.rearGrip */
    };
   
    const result = await mongodb
@@ -110,10 +112,10 @@ const getAll = async (req, res) => {
 
 
   //------------------------------------
-  // DELETE USER
+  // DELETE BOOK
   //------------------------------------
   
-  const deleteMeta = async(req, res) => {
+  const deleteBook = async(req, res) => {
     try{
       const booksId = new ObjectId(req.params.id);
       const result = await mongodb
@@ -136,7 +138,7 @@ const getAll = async (req, res) => {
   module.exports = {
     getAll,
     getSingle,
-    createMeta,
-    updateMeta,
-    deleteMeta
+    createBook,
+    updateBook,
+    deleteBook
   }

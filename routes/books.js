@@ -10,10 +10,10 @@ router.get('/', controller.getAll);
 //Get ony document.
 router.get('/:id', controller.getSingle);
 //Get all the collection.
-router.post('/',isAuthenticated, controller.createMeta);
+router.post('/',isAuthenticated, controller.createBook);
 //Get ony document.
-router.put('/:id',isAuthenticated, controller.updateMeta);
+router.put('/:id',isAuthenticated, controller.updateBook);
 //Get ony document.
-router.delete('/:id',isAuthenticated, controller.deleteMeta);
+router.delete('/:id',isAuthenticated, controller.deleteBook);
 
 module.exports = router;

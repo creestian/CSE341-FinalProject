@@ -8,6 +8,7 @@ router.use('/', require('./swagger'));
 router.use('/members', require('./members'));
 router.use('/authors', require('./authors'));
 router.use('/books', require('./books'));
+router.user('/loan', require('./loan'));
 
 //Login routes
 router.get('/login', passport.authenticate('github'), (req, res) => {

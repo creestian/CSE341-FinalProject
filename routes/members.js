@@ -7,20 +7,31 @@ const { isAuthenticated } = require('../middleware/authenticate');
 // Add isAuthenticated to all routes after testing
 
 //Get all members
-router.get('/', controller.getAllMembers);
+router.get('/', isAuthenticated, controller.getAllMembers);
 
 //Get member by ID
-router.get('/:id', validation.checkID, controller.getMember);
+router.get('/:id', isAuthenticated, validation.checkID, controller.getMember);
 
 // Add new member
-router.post('/', validation.memberDataValidation, controller.addMember);
+router.post(
+	'/',
+	isAuthenticated,
+	validation.memberDataValidation,
+	controller.addMember
+);
 
 // Update member by ID
-router.put('/:id', validation.checkID, controller.updateMemberByID);
+router.put(
+	'/:id',
+	isAuthenticated,
+	validation.checkID,
+	controller.updateMemberByID
+);
 
 // Add loan or to be read book
 router.post(
 	'/add',
+	isAuthenticated,
 	validation.validateAddRemove,
 	validation.checkAddRemoveIDs,
 	controller.addBookArray
@@ -29,12 +40,18 @@ router.post(
 // Remove loan or to be read book
 router.post(
 	'/remove',
+	isAuthenticated,
 	validation.validateAddRemove,
 	validation.checkAddRemoveIDs,
 	controller.removeBookFromArray
 );
 
 // Remove member by ID
-router.delete('/:id', validation.checkID, controller.deleteMember);
+router.delete(
+	'/:id',
+	isAuthenticated,
+	validation.checkID,
+	controller.deleteMember
+);
 
 module.exports = router;

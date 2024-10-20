@@ -25,6 +25,7 @@ router.put(
 	'/:id',
 	isAuthenticated,
 	validation.checkID,
+	validation.memberDataValidation,
 	controller.updateMemberByID
 );
 

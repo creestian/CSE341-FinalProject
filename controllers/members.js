@@ -81,7 +81,7 @@ async function updateMemberByID(req, res) {
 			.getDatabase()
 			.db()
 			.collection('members')
-			.updateOne({ _id: bookID }, { $set: newBook });
+			.updateOne({ _id: ID }, { $set: updatedInfo });
 		res.status(200).json('Member Updated');
 	} catch (error) {
 		console.error('Error updating member:', error);

@@ -78,19 +78,19 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "example@example.com"
                 },
                 "dob": {
-                  "example": "any"
+                  "example": "1996-11-20"
                 },
                 "accountType": {
-                  "example": "any"
+                  "example": "member"
                 },
                 "loans": {
-                  "example": "any"
+                  "example": []
                 },
                 "toBeRead": {
-                  "example": "any"
+                  "example": []
                 }
               }
             }
@@ -166,19 +166,19 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "exp@exp.com"
                 },
                 "dob": {
-                  "example": "any"
+                  "example": "1999-01-01"
                 },
                 "accountType": {
-                  "example": "any"
+                  "example": "member"
                 },
                 "loans": {
-                  "example": "any"
+                  "example": []
                 },
                 "toBeRead": {
-                  "example": "any"
+                  "example": []
                 }
               }
             }

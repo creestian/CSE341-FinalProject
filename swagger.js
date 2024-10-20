@@ -5,8 +5,8 @@ const doc = {
         title: 'HTTP Documentation',
         description: 'CSE 341 Final project\n Danny Ellis, Angie Pincock, Cristian Fabian Navia, Berny Fred',
     },
-    host:'localhost:8080',
-    scheme:['http','https']
+    host:'cse341-finalproject-60ke.onrender.com',
+    scheme:['https','http']
 };
 
 const outPutFile = "./swagger.json";

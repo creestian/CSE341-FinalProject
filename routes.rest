@@ -101,3 +101,37 @@ Content-Type: application/json
     "listType": "toBeRead",
     "itemID": "670d629e2fa7a06fdc54cb38"
 }
+
+### Get all loans
+get http://localhost:8080/loans
+
+### Get by loan ID
+get http://localhost:8080/loans/67133197d8f9836cac147629
+
+### Get by loan ID
+get http://localhost:8080/loans/member/670d61142fa7a06fdc54cb33
+
+### Create loan
+post http://localhost:8080/loans/add
+Content-Type: application/json
+
+{
+    "memberID": "670d61142fa7a06fdc54cb33",
+    "bookID": "670d629e2fa7a06fdc54cb38",
+    "startDate": "11/01/2024",
+    "endDate": "11/07/2024"
+}
+
+### Update loan
+put http://localhost:8080/loans/update/67137825aae48c98cc79fc70
+Content-Type: application/json
+
+{
+    "memberID": "670d61142fa7a06fdc54cb33",
+    "bookID": "670d629e2fa7a06fdc54cb38",
+    "startDate": "10/20/2024",
+    "endDate": "11/07/2024"
+}
+
+### Remove loan by loan Id
+DELETE  http://localhost:8080/loans/remove/67133197d8f9836cac147629 HTTP/1.1

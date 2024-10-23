@@ -5,7 +5,7 @@
     "description": "CSE 341 Final project\n Danny Ellis, Angie Pincock, Cristian Fabian Navia, Berny Fred",
     "version": "1.0.0"
   },
-  "host": "cse341-finalproject-60ke.onrender.com",
+  "host": "creestian.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"

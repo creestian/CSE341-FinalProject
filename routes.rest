@@ -14,10 +14,10 @@ GET http://localhost:8080/members
 GET http://localhost:8080/books/670d619f2fa7a06fdc54cb35
 
 ### ---Render ALL books---
-GET https://cse341-project2-1nzc.onrender.com/wzmeta
+GET https://creestian.onrender.com/books
 
 ### ---Render SINGLE book
-GET https://cse341-project2-1nzc.onrender.com/wzmeta/67042e0d3ff6863a1b20f07e
+GET https://creestian.onrender.com/wzmeta/670d619f2fa7a06fdc54cb35
 
 ### ---Create a book---
 POST http://localhost:8080/books HTTP/1.1

@@ -11,9 +11,12 @@ const getAllMembers = async (req, res) => {
 			.find();
 		result.toArray().then((lists) => {
 			res.setHeader('Content-Type', 'application/json');
-			res.status(200).json(lists);
+			res
+				.status(200)
+				.json({ message: 'Members retrieved successfully!', data: lists });
 		});
 	} catch (err) {
+		console.error('Error retrieving members:', err); // Add detailed logging
 		res.status(500).json({ message: err.message });
 	}
 };
@@ -159,21 +162,16 @@ const removeBookFromArray = async (req, res) => {
 			.getDatabase()
 			.db()
 			.collection('members')
-			.updateOne(
-				{ _id: memberID },
-				{ $pull: { [listType]: bookID } }
-			);
+			.updateOne({ _id: memberID }, { $pull: { [listType]: bookID } });
 
 		if (result.modifiedCount === 0) {
 			return res.status(404).json({ message: 'Book not found in the list' });
 		}
 
-		res
-			.status(200)
-			.json({
-				message: `Book removed from ${listType} successfully`,
-				memberID,
-			});
+		res.status(200).json({
+			message: `Book removed from ${listType} successfully`,
+			memberID,
+		});
 	} catch (error) {
 		console.error('Error removing book:', error);
 		res.status(500).json({ message: 'Failed to remove book' });

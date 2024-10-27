@@ -27,7 +27,15 @@ const getDatabase = () => {
       return database;
 };
 
+const closeDb = () => {
+	if (database) {
+		return database.close();
+	}
+	return Promise.resolve(); // Return a resolved promise if no client to close
+};
+
 module.exports = {
     initDb,
-    getDatabase
+    getDatabase,
+    closeDb,
 };

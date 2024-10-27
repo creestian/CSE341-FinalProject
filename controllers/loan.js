@@ -7,7 +7,7 @@ const getAll = async (req, res) => {
     const result = await mongodb.getDatabase().db().collection('loans').find();
     const lists = await result.toArray();
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists);
+    res.json({ message: 'Loans retrieved successfully!', data: lists });
   } catch (error) {
     res.status(500).json({ error: 'Failed to retrieve loans' });
   }

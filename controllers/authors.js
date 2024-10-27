@@ -6,7 +6,7 @@ const getAll = async (req, res) => {
     const result = await mongodb.getDatabase().db().collection('authors').find();
     result.toArray().then((authors) => {
         res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(authors);
+        res.json({ message: 'Authors retrieved successfully!', data: authors });
     });
 };
 

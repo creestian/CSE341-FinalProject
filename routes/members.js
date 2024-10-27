@@ -7,7 +7,7 @@ const { isAuthenticated } = require('../middleware/authenticate');
 // Add isAuthenticated to all routes after testing
 
 //Get all members
-router.get('/', isAuthenticated, controller.getAllMembers);
+router.get('/', controller.getAllMembers);
 
 //Get member by ID
 router.get('/:id', isAuthenticated, validation.checkID, controller.getMember);

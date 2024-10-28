@@ -72,10 +72,10 @@
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "example": "testFirst"
                 },
                 "lastName": {
-                  "example": "any"
+                  "example": "testLast"
                 },
                 "email": {
                   "example": "example@example.com"
@@ -160,10 +160,10 @@
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "example": "testFirst"
                 },
                 "lastName": {
-                  "example": "any"
+                  "example": "testLast"
                 },
                 "email": {
                   "example": "exp@exp.com"
@@ -284,13 +284,13 @@
               "type": "object",
               "properties": {
                 "memberID": {
-                  "example": "any"
+                  "example": "memberID"
                 },
                 "itemID": {
-                  "example": "any"
+                  "example": "itemID"
                 },
                 "listType": {
-                  "example": "any"
+                  "example": "loan"
                 }
               }
             }
@@ -343,13 +343,13 @@
               "type": "object",
               "properties": {
                 "firstname": {
-                  "example": "any"
+                  "example": "expFirst"
                 },
                 "lastname": {
-                  "example": "any"
+                  "example": "expLast"
                 },
-                "bookid": {
-                  "example": "any"
+                "books": {
+                  "example": []
                 }
               }
             }
@@ -407,13 +407,13 @@
               "type": "object",
               "properties": {
                 "firstname": {
-                  "example": "any"
+                  "example": "expFirst"
                 },
                 "lastname": {
-                  "example": "any"
+                  "example": "expLast"
                 },
-                "bookid": {
-                  "example": "any"
+                "books": {
+                  "example": []
                 }
               }
             }
@@ -476,19 +476,19 @@
               "type": "object",
               "properties": {
                 "author_id": {
-                  "example": "any"
+                  "example": "authorID"
                 },
                 "title": {
-                  "example": "any"
+                  "example": "Example Book Title"
                 },
                 "avgRating": {
-                  "example": "any"
+                  "example": 4.5
                 },
                 "numCopies": {
-                  "example": "any"
+                  "example": 5
                 },
                 "avaliableCopies": {
-                  "example": "any"
+                  "example": 5
                 }
               }
             }
@@ -545,22 +545,22 @@
             "schema": {
               "type": "object",
               "properties": {
-                "author_id": {
-                  "example": "any"
-                },
-                "title": {
-                  "example": "any"
-                },
-                "avgRating": {
-                  "example": "any"
-                },
-                "numCopies": {
-                  "example": "any"
-                },
-                "avaliableCopies": {
-                  "example": "any"
-                }
-              }
+								"author_id": {
+									"example": "authorID"
+								},
+								"title": {
+									"example": "Example Book Title"
+								},
+								"avgRating": {
+									"example": 4.5
+								},
+								"numCopies": {
+									"example": 5
+								},
+								"avaliableCopies": {
+									"example": 5
+								}
+							}
             }
           }
         ],
@@ -689,16 +689,16 @@
               "type": "object",
               "properties": {
                 "memberID": {
-                  "example": "any"
+                  "example": "memberID"
                 },
                 "bookID": {
-                  "example": "any"
+                  "example": "bookID"
                 },
                 "startDate": {
-                  "example": "any"
+                  "example": "10/01/2024"
                 },
                 "endDate": {
-                  "example": "any"
+                  "example": "10/21/2024"
                 }
               }
             }
@@ -736,19 +736,19 @@
             "schema": {
               "type": "object",
               "properties": {
-                "memberID": {
-                  "example": "any"
-                },
-                "bookID": {
-                  "example": "any"
-                },
-                "startDate": {
-                  "example": "any"
-                },
-                "endDate": {
-                  "example": "any"
-                }
-              }
+								"memberID": {
+									"example": "memberID"
+								},
+								"bookID": {
+									"example": "bookID"
+								},
+								"startDate": {
+									"example": "10/01/2024"
+								},
+								"endDate": {
+									"example": "10/21/2024"
+								}
+							}
             }
           }
         ],

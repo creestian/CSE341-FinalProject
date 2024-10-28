@@ -26,7 +26,7 @@ const createAuthor = async (req, res) => {
     const author = {
         firsname: req.body.firstname,
         lastname: req.body.lastname,
-        bookid: req.body.bookid
+        books: req.body.books
     };
     const response = await mongodb.getDatabase().db().collection('authors').insertOne(author);
     if (response.acknowledged) {
@@ -42,7 +42,7 @@ const updateAuthor = async (req, res) => {
     const author = {
         firsname: req.body.firstname,
         lastname: req.body.lastname,
-        bookid: req.body.bookid
+        books: req.body.books
     };
     const response = await mongodb.getDatabase().db().collection('authors').replaceOne({ _id: authorId }, author);
     if (response.modifiedCount > 0) {

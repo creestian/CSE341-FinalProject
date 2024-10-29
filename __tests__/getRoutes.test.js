@@ -1,6 +1,7 @@
 const request = require('supertest');
 const app = require('../server');
 const mongodb = require('../data/database');
+const { ObjectId } = require('mongodb');
 
 beforeAll((done) => {
 	mongodb.initDb((err) => {
@@ -53,3 +54,5 @@ describe('GET /loans', () => {
 		expect(Array.isArray(response.body.data)).toBe(true);
 	});
 });
+
+

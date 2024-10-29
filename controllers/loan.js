@@ -50,9 +50,12 @@ const add = async (req, res) => {
     };
     const response = await mongodb.getDatabase().db().collection('loans').insertOne(loan);
     if (response.acknowledged) {
-      res.status(201).json(response);
+      res.status(201).json({
+        message: 'Loan created successfully!',
+        data: { insertedId: response.insertedId },
+      });
     } else {
-      res.status(500).json('Some error occurred while creating the loan.');
+      res.status(500).json({ error: 'Some error occurred while creating the loan.' });
     }
   } catch (error) {
     res.status(500).json({ error: 'Failed to create a new loan' });
@@ -74,10 +77,11 @@ const update = async (req, res) => {
       .db()
       .collection('loans')
       .replaceOne({ _id: loanId }, loan);
+
     if (response.modifiedCount > 0) {
-      res.status(204).send();
+      res.status(204).json({});
     } else {
-      res.status(500).json('Failed to update the loan.');
+      res.status(404).json({ error: 'Loan not found or no changes made.' });
     }
   } catch (error) {
     res.status(500).json({ error: 'Failed to update the loan' });

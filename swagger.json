@@ -8,7 +8,7 @@
   "host": "cse341-finalproject-60ke.onrender.com",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/login": {
@@ -78,19 +78,19 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "example@example.com"
+                  "example": "any"
                 },
                 "dob": {
-                  "example": "1996-11-20"
+                  "example": "any"
                 },
                 "accountType": {
-                  "example": "member"
+                  "example": "any"
                 },
                 "loans": {
-                  "example": []
+                  "example": "any"
                 },
                 "toBeRead": {
-                  "example": []
+                  "example": "any"
                 }
               }
             }
@@ -99,6 +99,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "412": {
             "description": "Precondition Failed"
@@ -166,19 +169,19 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "exp@exp.com"
+                  "example": "any"
                 },
                 "dob": {
-                  "example": "1999-01-01"
+                  "example": "any"
                 },
                 "accountType": {
-                  "example": "member"
+                  "example": "any"
                 },
                 "loans": {
-                  "example": []
+                  "example": "any"
                 },
                 "toBeRead": {
-                  "example": []
+                  "example": "any"
                 }
               }
             }
@@ -688,16 +691,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "memberID": {
-                  "example": "any"
-                },
-                "bookID": {
-                  "example": "any"
-                },
                 "startDate": {
                   "example": "any"
                 },
                 "endDate": {
+                  "example": "any"
+                },
+                "memberID": {
+                  "example": "any"
+                },
+                "bookID": {
                   "example": "any"
                 }
               }
@@ -710,6 +713,12 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -736,16 +745,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "memberID": {
-                  "example": "any"
-                },
-                "bookID": {
-                  "example": "any"
-                },
                 "startDate": {
                   "example": "any"
                 },
                 "endDate": {
+                  "example": "any"
+                },
+                "memberID": {
+                  "example": "any"
+                },
+                "bookID": {
                   "example": "any"
                 }
               }
@@ -758,6 +767,12 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"

@@ -15,7 +15,7 @@ const getAll = async (req, res) => {
         .find();
       result.toArray().then((lists) => {
         res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(lists);
+        res.json({ message: 'Books retrieved successfully!', data: lists });
       });
     }catch (err) {
       res.status(500).json({message: err.message});

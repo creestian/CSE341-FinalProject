@@ -10,7 +10,7 @@ const getAll = async (req, res) => {
             res.status(200).json(authors);
         });
     }catch (err) {
-        res.status(500).json({message: err.message});
+        res.status(500).json(err);
     }
 };
 
@@ -31,32 +31,42 @@ const getSingle = async (req, res) => {
 const createAuthor = async (req, res) => {
     //#swagger.tags=[ 'Authors' ]
     //Verify how to connect books- [Book ID]
-    const author = {
-        firsname: req.body.firstname,
-        lastname: req.body.lastname,
-        bookid: req.body.bookid
-    };
-    const response = await mongodb.getDatabase().db().collection('authors').insertOne(author);
-    if (response.acknowledged) {
-        res.status(204).send();
-    } else {
-        res.status(500).json(response.error || 'Some error ocurred while creating the author.');
+    try{
+        const author = {
+            firstname: req.body.firstname,
+            middlename: req.body.middlename,
+            lastname: req.body.lastname,
+            bookid: req.body.bookid
+        };
+        const response = await mongodb.getDatabase().db().collection('authors').insertOne(author);
+        if (response.acknowledged) {
+            res.status(204).send();
+        } else {
+            res.status(500).json(response.error || 'Some error ocurred while creating the author.');
+        }
+    }catch(err) {
+        res.status(500).json(err);
     }
 };
 
 const updateAuthor = async (req, res) => {
     //#swagger.tags=[ 'Authors' ]
-    const authorId = new ObjectId(req.params.id);
-    const author = {
-        firsname: req.body.firstname,
-        lastname: req.body.lastname,
-        bookid: req.body.bookid
-    };
-    const response = await mongodb.getDatabase().db().collection('authors').replaceOne({ _id: authorId }, author);
-    if (response.modifiedCount > 0) {
-        res.status(204).send();
-    } else {
-        res.status(500).json(response.error || 'Some error ocurred while updating the author.');
+    try {
+        const authorId = new ObjectId(req.params.id);
+        const author = {
+            firstname: req.body.firstname,
+            middlename: req.body.middlename,
+            lastname: req.body.lastname,
+            bookid: req.body.bookid
+        };
+        const response = await mongodb.getDatabase().db().collection('authors').replaceOne({ _id: authorId }, author);
+        if (response.modifiedCount > 0) {
+            res.status(204).send();
+        } else {
+            res.status(500).json(response.error || 'Some error ocurred while updating the author.');
+        }
+    }catch (error) {
+		res.status(500).json(err);
     }
 };
 

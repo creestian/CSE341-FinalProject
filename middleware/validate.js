@@ -116,10 +116,31 @@ async function checkAddRemoveIDs(req, res, next) {
 	}
 }
 
+async function authorValidation(req, res, next) {
+	const validationRule = {
+		firstName: 'required|string',
+		middleName: 'string',
+		lastName: 'required|string',
+		bookid: 'required|string'
+	};
+	validator.validator(req.body, validationRule, {}, (err, status) => {
+		if (!status) {
+			res.status(412).send({
+				success: false,
+				message: 'Validation failed',
+				data: err,
+			});
+		} else {
+			next();
+		}
+	});
+}
+
 module.exports = {
 	saveContact,
 	memberDataValidation,
 	checkID,
 	validateAddRemove,
 	checkAddRemoveIDs,
+	authorValidation
 };

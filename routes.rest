@@ -135,3 +135,37 @@ Content-Type: application/json
 
 ### Remove loan by loan Id
 DELETE  http://localhost:8080/loans/remove/67133197d8f9836cac147629 HTTP/1.1
+
+
+#### AUTHORS ####
+
+### Get all authors
+GET http://localhost:8080/authors
+
+### Get author by ID
+GET http://localhost:8080/authors/670d616d2fa7a06fdc54cb34
+
+### Add a new Author
+POST http://localhost:8080/authors
+Content-Type: application/json
+
+{
+    "firstName": "TESTfirst",
+    "middleName": "TESTmiddle",
+    "lastName": "TESTlast",
+    "bookId": "670432ef3ff6863a1b20f086"
+}
+
+### Update Author
+PUT http://localhost:8080/authors/670d616d2fa7a06fdc54cb34
+Content-Type: application/json
+
+{
+    "firstName": "TESTfirst",
+    "middleName": "TESTmiddle",
+    "lastName": "TESTlast",
+    "bookId": "670432ef3ff6863a1b20f086"
+}
+
+### Remove Author by Author Id
+DELETE  http://localhost:8080/authors/670d616d2fa7a06fdc54cb34 HTTP/1.1

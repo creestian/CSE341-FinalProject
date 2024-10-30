@@ -203,9 +203,9 @@ async function checkAddRemoveIDs(req, res, next) {
 
 async function authorValidation(req, res, next) {
 	const validationRule = {
-		firstName: 'required|string',
-		middleName: 'string',
-		lastName: 'required|string',
+		firstname: 'required|string',
+		middlename: 'string',
+		lastname: 'required|string',
 		bookid: 'required|string'
 	};
 	validator.validator(req.body, validationRule, {}, (err, status) => {

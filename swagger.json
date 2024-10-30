@@ -345,10 +345,13 @@
             "schema": {
               "type": "object",
               "properties": {
-								"firstName": {
+								"firstname": {
 									"example": "any"
 								},
-								"lastName": {
+								"middlename": {
+									"example": "any"
+								},
+								"lastname": {
 									"example": "any"
 								},
 								"bookid": {
@@ -409,10 +412,13 @@
             "schema": {
               "type": "object",
               "properties": {
-								"firstName": {
+								"firstname": {
 									"example": "any"
 								},
-								"lastName": {
+                "middlename": {
+                  "example": "any"
+                },
+								"lastname": {
 									"example": "any"
 								},
 								"bookid": {

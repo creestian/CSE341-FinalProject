@@ -345,16 +345,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstname": {
-                  "example": "expFirst"
-                },
-                "lastname": {
-                  "example": "expLast"
-                },
-                "books": {
-                  "example": []
-                }
-              }
+								"firstName": {
+									"example": "any"
+								},
+								"lastName": {
+									"example": "any"
+								},
+								"bookid": {
+									"example": "any"
+								}
+							}
             }
           }
         ],
@@ -409,16 +409,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstname": {
-                  "example": "expFirst"
-                },
-                "lastname": {
-                  "example": "expLast"
-                },
-                "books": {
-                  "example": []
-                }
-              }
+								"firstName": {
+									"example": "any"
+								},
+								"lastName": {
+									"example": "any"
+								},
+								"bookid": {
+									"example": "any"
+								}
+							}
             }
           }
         ],
